@@ -8,7 +8,6 @@ var Wallpaper = function (options) {
   this.yPos = 0;
   this.width = options.width || 450;
   this.height = options.height || 450;
-  this.finished = false;
 
   this.ctx.clearRect(0, 0, this.width, this.height);
 
@@ -38,8 +37,8 @@ var Wallpaper = function (options) {
 
     if (this.xPos > this.width) {
       if (this.yPos > this.height) {
-        this.finished = true;
-        return;
+        currR = randRGB();
+        currG = randRGB();
       }
       this.xPos = 0;
     } else {
@@ -57,9 +56,7 @@ var Wallpaper = function (options) {
 
   this.generate = function () {
     setInterval(function () {
-      if (!self.finished) {
-        requestAnimationFrame(self.randomizeShape.bind(self));
-      }
+      requestAnimationFrame(self.randomizeShape.bind(self));
     }, 1);
   };
 };

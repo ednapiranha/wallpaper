@@ -21,15 +21,10 @@
 
       window.requestAnimationFrame = requestAnimationFrame;
 
-      function run() {
-        var wallpaper = new Wallpaper({ width: canvas.width,
-                                        height: canvas.height,
-                                        id: 'wallpaper' });
-        wallpaper.generate();
-      }
-
-      run();
+      var wallpaper = new Wallpaper({ width: canvas.width,
+                                      height: canvas.height,
+                                      id: 'wallpaper' });
+      wallpaper.generate();
     </script>
-    <button onclick="run();">Generate</button>
   </body>
 </html>
