@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wallpaper</title>
+    <script type="text/javascript" src="wallpaper.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <script type="text/javascript">
+      var canvas = document.createElement('canvas');
+      canvas.id = 'wallpaper';
+      canvas.width = 1024;
+      canvas.height = 568;
+
+      document.body.appendChild(canvas);
+
+      var requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame;
+
+      window.requestAnimationFrame = requestAnimationFrame;
+
+      function run() {
+        var wallpaper = new Wallpaper({ width: canvas.width,
+                                        height: canvas.height,
+                                        id: 'wallpaper' });
+        wallpaper.generate();
+      }
+
+      run();
+    </script>
+    <button onclick="run();">Generate</button>
+  </body>
+</html>
